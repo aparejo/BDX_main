@@ -1,0 +1,47 @@
+<!-- crear-evento2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Evento</title>
+</head>
+<body>
+    <h1>Crear Evento</h1>
+    <form method="post" action="{% url 'crear_evento' %}">
+        {% csrf_token %}
+        <label for="nombre">Nombre del evento:</label>
+        <input type="text" name="nombre" required><br>
+        <label for="fecha_inicio">Fecha de inicio:</label>
+        <input type="datetime-local" name="fecha_inicio" required><br>
+        <label for="fecha_fin">Fecha de fin:</label>
+        <input type="datetime-local" name="fecha_fin" required><br>
+        <label for="sucursal">Sucursal:</label>
+        <select name="sucursal" required>
+            {% for sucursal in sucursales %}
+                <option value="{{ sucursal.id }}">{{ sucursal.nombre }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="record">Record:</label>
+        <select name="record" required>
+            <option value="puntaje">Puntaje</option>
+            <option value="tiempo">Tiempo</option>
+        </select><br>
+        <label for="participacion">Participación:</label>
+        <select name="participacion" required>
+            <option value="unico_evento">Único evento</option>
+            <option value="unico_dia">Único por día</option>
+            <option value="unico_semana">Único por semana</option>
+            <option value="unico_mes">Único por mes</option>
+        </select><br>
+        <label for="status">Estado:</label>
+        <select name="status" required>
+            <option value="activo">Activo</option>
+            <option value="inactivo">Inactivo</option>
+        </select><br>
+        <label for="tiene_categoria">¿Tiene categoría?</label>
+        <input type="checkbox" name="tiene_categoria"><br>
+        <label for="tiene_subcategoria">¿Tiene subcategoría?</label>
+        <input type="checkbox" name="tiene_subcategoria"><br>
+        <input type="submit" value="Crear evento">
+    </form>
+</body>
+</html>

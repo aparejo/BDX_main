@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap"
+    />
+    <link rel="shortcut icon" href="{% static 'assets/media/logos/cropped-r-redvital-192x192.png' %}" />
+  </head>
+  <body>
+    <div class="tv-1">
+      <img
+        class="oscuro-marron-1-icon"
+        alt=""
+        src="{% static 'images/oscuro-marron-1@2x.png' %}"
+      />
+
+      <img class="logo-reto-1-icon" alt="" src="{% static 'images/logoreto-1@2x.png' %}" />
+      {% block content %}
+      <div class="barquisimeto">{{ sucursal.nombre }}</div>
+      
+      {% for participante in participantes %}
+  {% if participante.categoria.nombre == "Básquetbol Femenino" %}
+  <div class="maria1-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
+  <div class="cat-l1-container{{ forloop.counter }}">
+    <span>{{ participante.subcategoria.nombre }} - </span>
+    <span class="puntos">{{ participante.puntos }} puntos</span>
+  </div>
+  {% endif %}
+{% endfor %}
+
+      {% for participante in participantes %}
+  {% if participante.categoria.nombre == "Básquetbol Masculino" %}
+  <div class="maria2-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
+  <div class="cat-l2-container{{ forloop.counter }}">
+    <span>{{ participante.subcategoria.nombre }} - </span>
+    <span class="puntos">{{ participante.puntos }} puntos</span>
+  </div>
+  {% endif %}
+{% endfor %}
+
+      {% for participante in participantes %}
+  {% if participante.categoria.nombre == "Fútbol Femenino" %}
+  <div class="maria3-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
+  <div class="cat-l3-container{{ forloop.counter }}">
+    <span>{{ participante.subcategoria.nombre }} - </span>
+    <span class="puntos">{{ participante.puntos }} puntos</span>
+  </div>
+  {% endif %}
+{% endfor %}
+
+      {% for participante in participantes %}
+  {% if participante.categoria.nombre == "Fútbol Masculino" %}
+  <div class="maria4-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
+  <div class="cat-l4-container{{ forloop.counter }}">
+    <span>{{ participante.subcategoria.nombre }} - </span>
+    <span class="puntos">{{ participante.puntos }} puntos</span>
+  </div>
+  {% endif %}
+{% endfor %}
+      <div class="bsquetbol">Básquetbol</div>
+      <div class="femenino">Femenino</div>
+      <div class="bsquetbol1">Básquetbol</div>
+      <div class="masculino">Masculino</div>
+      <div class="ftbol">Fútbol</div>
+      <div class="masculino1">Masculino</div>
+      <div class="ftbol1">Fútbol</div>
+      <div class="femenino1">Femenino</div>
+      <div class="semana-1-container">
+        <p class="semana-1-mes-1">
+          <span class="semana">Semana </span>
+          <span class="span">1 </span>
+          <span class="mes">- Mes </span>
+          <span class="span">1</span>
+        </p>
+        <p class="semana-1-mes-1">
+          <span class="mes">inicia:</span>
+          <span class="span"> {{ evento.fecha_inicio }}  </span>
+          <span class="semana">- Finaliza: </span>
+          <span class="span">{{ evento.fecha_fin }} </span>
+        </p>
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
+

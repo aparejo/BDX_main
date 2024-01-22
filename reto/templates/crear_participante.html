@@ -1,0 +1,56 @@
+<!-- crear-evento2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Eventos</title>
+</head>
+<body>
+<!-- Formulario para registrar un participante -->
+<form method="post" action="{% url 'guardar-participante' %}">
+    {% csrf_token %}
+  
+    <!-- Campos para el participante -->
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" required><br>
+  
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" required><br>
+  
+    <label for="telefono">Teléfono:</label>
+    <input type="text" name="telefono" required><br>
+  
+    <!-- Otros campos del participante -->
+  
+    <!-- Si tieneci es "No", mostrar el modal para registrar el representante -->
+    {% if tieneci == "No" %}
+      <button type="button" onclick="mostrarModalRepresentante()">Registrar Representante</button>
+    {% endif %}
+  
+    <!-- Botones para guardar el registro -->
+    <button type="submit" name="action" value="guardar">Guardar Registro</button>
+    <button type="submit" name="action" value="guardar_puntos">Guardar Registro y Registrar Puntos</button>
+  </form>
+  
+  <!-- Modal para registrar el representante -->
+  <div id="modal-representante" style="display: none;">
+    <form method="post" action="{% url 'guardar-representante' %}">
+      {% csrf_token %}
+  
+      <!-- Campos para el representante -->
+      <label for="nombre_representante">Nombre:</label>
+      <input type="text" name="nombre_representante" required><br>
+  
+      <!-- Otros campos del representante -->
+  
+      <button type="submit">Guardar Representante</button>
+    </form>
+  </div>
+  
+  <!-- Función JavaScript para mostrar el modal del representante -->
+  <script>
+    function mostrarModalRepresentante() {
+      document.getElementById("modal-representante").style.display = "block";
+    }
+  </script>
+</body>
+</html>
