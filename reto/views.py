@@ -155,7 +155,7 @@ def guardar_participante(request):
         if form.is_valid():
             participante = form.save()
             # Realiza cualquier acción adicional que necesites, como enviar una respuesta o redirigir a otra página
-            return redirect('nombre_de_la_vista')  # Reemplaza 'nombre_de_la_vista' con el nombre de la vista a la que deseas redirigir
+            return redirect('participantes')  # Reemplaza 'nombre_de_la_vista' con el nombre de la vista a la que deseas redirigir
     else:
         form = ParticipanteForm()
     
