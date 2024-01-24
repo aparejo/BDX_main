@@ -1,0 +1,39 @@
+<!-- crear-evento2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Representante</title>
+</head>
+<body>
+    <h1>Crear Representante</h1>
+    <!-- formulario_representante.html -->
+
+<form method="POST" action="{% url 'guardar-representante' %}">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre">
+  
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" id="apellido">
+  
+    <label for="cedula">Cédula:</label>
+    <input type="text" name="cedula" id="cedula">
+  
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" name="ciudad" id="ciudad">
+  
+    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+  
+    <label for="telefono">Teléfono:</label>
+    <input type="text" name="telefono" id="telefono">
+  
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" name="correo" id="correo">
+  
+    <label for="parentezco">Parentezco:</label>
+    <input type="text" name="parentezco" id="parentezco">
+  
+    <button type="submit">Guardar</button>
+</body>
+</html>

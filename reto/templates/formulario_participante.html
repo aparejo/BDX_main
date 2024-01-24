@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guardar Participante</title>
+</head>
+<body>
+  <h1>Guardar</h1>
+  <form method="POST" action="{% url 'guardar_participante' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>

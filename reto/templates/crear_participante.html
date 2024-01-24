@@ -1,11 +1,11 @@
-<!-- crear-evento2.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de Eventos</title>
+    <title>Crear Participante</title>
 </head>
 <body>
 <!-- Formulario para registrar un participante -->
+<h1>Crear Participante</h1>
 <form method="post" action="{% url 'guardar-participante' %}">
     {% csrf_token %}
   
@@ -19,38 +19,26 @@
     <label for="telefono">Teléfono:</label>
     <input type="text" name="telefono" required><br>
   
-    <!-- Otros campos del participante -->
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" name="ciudad"><br>
   
-    <!-- Si tieneci es "No", mostrar el modal para registrar el representante -->
-    {% if tieneci == "No" %}
-      <button type="button" onclick="mostrarModalRepresentante()">Registrar Representante</button>
-    {% endif %}
+    <label for="cedula">Cédula:</label>
+    <input type="text" name="cedula" required><br>
+  
+    <label for="fecha">Fecha de Nacimiento:</label>
+    <input type="date" name="fecha" required><br>
+  
+    <label for="tieneci">¿Tiene Cédula de Identidad?:</label>
+    <select name="tieneci" required>
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+    </select><br>
   
     <!-- Botones para guardar el registro -->
     <button type="submit" name="action" value="guardar">Guardar Registro</button>
     <button type="submit" name="action" value="guardar_puntos">Guardar Registro y Registrar Puntos</button>
-  </form>
+</form>
   
-  <!-- Modal para registrar el representante -->
-  <div id="modal-representante" style="display: none;">
-    <form method="post" action="{% url 'guardar-representante' %}">
-      {% csrf_token %}
-  
-      <!-- Campos para el representante -->
-      <label for="nombre_representante">Nombre:</label>
-      <input type="text" name="nombre_representante" required><br>
-  
-      <!-- Otros campos del representante -->
-  
-      <button type="submit">Guardar Representante</button>
-    </form>
-  </div>
-  
-  <!-- Función JavaScript para mostrar el modal del representante -->
-  <script>
-    function mostrarModalRepresentante() {
-      document.getElementById("modal-representante").style.display = "block";
-    }
-  </script>
+
 </body>
 </html>

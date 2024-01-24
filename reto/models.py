@@ -97,20 +97,13 @@ class Subcategoria(models.Model):
 
     
 class Participante(models.Model):
-    sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     telefono = models.CharField(max_length=15)
     ciudad = models.CharField(max_length=15, null=True)
     cedula = models.CharField(max_length=15)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    subcategoria = models.ForeignKey(Subcategoria, on_delete=models.CASCADE)
-    puntos = models.IntegerField()
-    edad = models.DateField(null=True)
     fecha = models.DateField()
     tieneci = models.BooleanField(null=True)
-    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, default=1)
     ultima_participacion = models.DateTimeField(null=True)
     
 class Representante(models.Model):

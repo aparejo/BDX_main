@@ -27,7 +27,7 @@ from reto.views import ParticipantesListView
 from reto.views import ParticipanteDetailView
 from reto import views
 from reto.views import crear_evento, lista_eventos
-from reto.views import BASE1, guardar_participante, guardar_representante
+from reto.views import guardar_participante, guardar_puntaje#guardar_representante
 
 
 
@@ -42,12 +42,15 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('', views.BASE, name='BASE'),
-    path('guardar_participante/', guardar_participante, name='guardar-participante'),
-    path('guardar-representante/', guardar_representante, name='guardar-representante'),
-    path('crear_participante/', BASE1, name='crear_participante'),
+    path('guardar-participante/', views.guardar_participante, name='guardar-participante'),
+    #path('guardar-representante/', guardar_representante, name='guardar-representante'),
+    path('crear_participante/', views.crear_participante, name='crear_participante'),
     path('participantes.html', ParticipantesListView.as_view(), name='participantes_list'),
     path('participante/<int:pk>/', ParticipanteDetailView.as_view(), name='participante_detail'),
     path('crear_evento/', crear_evento, name='crear_evento'),
     path('lista_eventos/', lista_eventos, name='lista_eventos'),
+    path('guardar-puntaje/', guardar_puntaje, name='guardar_puntaje'),
+    path('participante/<int:pk>/guardar-puntaje/', guardar_puntaje, name='guardar_puntaje'),
+    #path('formulario_representante/', views.formulario_representante, name='formulario_representante'),
     # otras rutas de tu aplicación
 ]
