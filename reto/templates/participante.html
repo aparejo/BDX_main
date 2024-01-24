@@ -523,7 +523,7 @@
 										<!--begin::Content-->
 										<div class="flex-lg-row-fluid me-0 me-lg-20">
 											<!--begin::Form-->
-											<form action="m-0" class="form mb-15 fv-plugins-bootstrap5 fv-plugins-framework" method="post" id="kt_careers_form">
+											
 												<!--begin::Input group-->
 												<div class="row mb-5">
 													<!--begin::Col-->
@@ -611,10 +611,17 @@
 												<div class="separator mb-8"></div>
 												<!--end::Separator-->
 												<!--begin::Submit-->
-												<button onclick="cargarPuntos()" class="btn btn-primary">Cargar Puntos</button>
+												<h2>Cargar Puntos</h2>
+													<form method="post" action="{% url 'cargar_puntos' participante.id %}">
+													{% csrf_token %}
+													
+													{{ form.as_p }}
+													
+													<button type="submit">Cargar Puntos</button>
+													</form>
 												
 												
-											</form>
+											
 											<br><br>
 											<!--end::Form-->
 											<table>
@@ -642,10 +649,9 @@
 												</div>
 												
 											</div>
-											<!--end::Job-->
+											
 										</div>
-										<!--end::Content-->
-										<!--begin::Sidebar-->
+										
 										
 									</div>
 									
@@ -666,13 +672,13 @@
 		
 		<script>var hostUrl = "{% static 'assets/' %}";</script>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+		<script src="{% static 'assets/plugins/global/archivo.js' %}"></script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
 		<script src="{% static 'assets/js/scripts.bundle.js' %}"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="{% static 'assets/plugins/global/archivo.js' %}"></script>
+		
 		<script src="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
 		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
