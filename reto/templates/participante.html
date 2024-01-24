@@ -612,13 +612,11 @@
 												<!--end::Separator-->
 												<!--begin::Submit-->
 												<h2>Cargar Puntos</h2>
-													<form method="post" action="{% url 'cargar_puntos' participante.id %}">
+												<form method="post" action="{% url 'cargar_puntos' participante.id %}">
 													{% csrf_token %}
-													
 													{{ form.as_p }}
-													
-													<button type="submit">Cargar Puntos</button>
-													</form>
+													<input type="submit" value="Guardar">
+												  </form>
 												
 												
 											

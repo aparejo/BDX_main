@@ -27,7 +27,7 @@ from reto.views import ParticipantesListView
 from reto.views import ParticipanteDetailView
 from reto import views
 from reto.views import crear_evento, lista_eventos
-from reto.views import guardar_participante, guardar_puntaje#guardar_representante
+from reto.views import guardar_participante, guardar_puntaje, obtener_categorias #guardar_representante
 
 
 
@@ -51,6 +51,8 @@ urlpatterns = [
     path('lista_eventos/', lista_eventos, name='lista_eventos'),
     path('guardar-puntaje/', guardar_puntaje, name='guardar_puntaje'),
     path('participante/<int:pk>/guardar-puntaje/', guardar_puntaje, name='guardar_puntaje'),
+    path('cargar-puntos/<int:participante_id>/', views.cargar_puntos, name='cargar_puntos'),
+    path('obtener_categorias/<int:evento_id>/', views.obtener_categorias, name='obtener_categorias'),
     #path('formulario_representante/', views.formulario_representante, name='formulario_representante'),
     # otras rutas de tu aplicación
 ]

@@ -1,9 +1,9 @@
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Participante, Categoria, Sucursal, Evento #Representante
+from .models import Participante, Categoria, Sucursal, Evento, Puntaje, Subcategoria #Representante
 from .forms import ParticipanteForm
 from django.http import JsonResponse
-from .forms import PuntajeForm
+from .forms import PuntajeForm, CargarPuntosForm
 
 def ver_eventos(request):
     eventos = Evento.objects.all()
@@ -125,6 +125,50 @@ def guardar_puntaje(request):
     else:
         form = PuntajeForm()
     return render(request, 'guardar_puntaje.html', {'form': form})
+
+def cargar_puntos(request, participante_id):
+    # Lógica para cargar los puntos del participante
+    
+    # Obtener el participante según su ID
+    participante = Participante.objects.get(id=participante_id)
+    
+    if request.method == 'POST':
+        form = CargarPuntosForm(request.POST)
+        if form.is_valid():
+            # Procesar los datos del formulario y guardar el puntaje
+            
+            # Acceder a los datos del formulario
+            fecha = form.cleaned_data['fecha']
+            marca = form.cleaned_data['marca']
+            tiempo = form.cleaned_data['tiempo']
+            evento = form.cleaned_data['evento']
+            categoria = form.cleaned_data['categoria']
+            subcategoria = form.cleaned_data['subcategoria']
+            
+            # Crear una instancia del modelo Puntaje y guardarla
+            puntaje = Puntaje(
+                fecha=fecha,
+                marca=marca,
+                tiempo=tiempo,
+                participante=participante,
+                evento=evento,
+                categoria=categoria,
+                subcategoria=subcategoria
+            )
+            puntaje.save()
+            
+            # Redireccionar o mostrar un mensaje de éxito
+            
+    else:
+        form = CargarPuntosForm(initial={'evento': evento_default, 'participante': participante})
+        form.fields['categoria'].queryset = Categoria.objects.filter(evento=evento_default)
+        form.fields['subcategoria'].queryset = Subcategoria.objects.filter(categoria__in=form.fields['categoria'].queryset)
+    
+    return render(request, 'participante.html', {'form': form, 'participante': participante})
+
+def obtener_categorias(request, evento_id):
+    categorias = Categoria.objects.filter(evento_id=evento_id).values('id', 'nombre')
+    return JsonResponse(list(categorias), safe=False)
 """
 def guardar_representante(request):
     if request.method == 'POST':

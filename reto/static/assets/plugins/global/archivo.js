@@ -1,4 +1,4 @@
-<script>
+
 function cargarPuntos() {
     var formElement = document.getElementById('puntaje-form');
     var formData = new FormData(formElement);
@@ -17,4 +17,25 @@ function cargarPuntos() {
         console.error('Error al cargar los puntos:', error);
     });
 }
-</script>
+
+
+function actualizar_categorias() {
+    var evento_id = document.getElementById("id_evento").value;
+    var url = "/obtener_categorias/" + evento_id + "/";
+    
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        var selectCategoria = document.getElementById("id_categoria");
+        selectCategoria.innerHTML = "";
+        
+        data.forEach(categoria => {
+          var option = document.createElement("option");
+          option.value = categoria.id;
+          option.text = categoria.nombre;
+          selectCategoria.appendChild(option);
+        });
+        
+        actualizar_categorias();
+      });
+  }
