@@ -42,6 +42,7 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('', views.BASE, name='BASE'),
+    path('participante/<int:participante_id>/', views.participante, name='participante'),
     path('guardar-participante/', views.guardar_participante, name='guardar-participante'),
     #path('guardar-representante/', guardar_representante, name='guardar-representante'),
     path('crear_participante/', views.crear_participante, name='crear_participante'),

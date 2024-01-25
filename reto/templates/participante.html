@@ -626,6 +626,9 @@
 												<thead>
 												  <tr>
 													<th>Fecha</th>
+													<th>Evento</th>
+													<th>Categoría</th>
+													<th>Subcategoría</th>
 													<th>Puntos</th>
 												  </tr>
 												</thead>
@@ -633,7 +636,10 @@
 												  {% for puntaje in puntajes %}
 												  <tr>
 													<td>{{ puntaje.fecha }}</td>
-													<td>{{ puntaje.puntos }}</td>
+													<td>{{ puntaje.evento.nombre }}</td>
+													<td>{{ puntaje.categoria.nombre }}</td>
+													<td>{{ puntaje.subcategoria.nombre }}</td>
+													<td>{{ puntaje.marca }}</td>
 												  </tr>
 												  {% endfor %}
 												</tbody>

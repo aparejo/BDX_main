@@ -3,7 +3,9 @@ from django.views.generic import ListView, DetailView, CreateView
 from .models import Participante, Categoria, Sucursal, Evento, Puntaje, Subcategoria #Representante
 from .forms import ParticipanteForm
 from django.http import JsonResponse
-from .forms import PuntajeForm, CargarPuntosForm
+from .forms import  CargarPuntosForm #PuntajeForm,
+from datetime import datetime, time
+from django.http import HttpResponseRedirect
 
 def ver_eventos(request):
     eventos = Evento.objects.all()
@@ -88,9 +90,9 @@ def guardar_participante(request):
     
     return render(request, 'formulario_participante.html', {'form': form})
 
-def participante(request):
-    participante = Participante.objects.get(usuario=request.user)
-    puntajes = Puntaje.objects.filter(participante=participante).order_by('-fecha')
+def participante(request, participante_id):
+    participante = Participante.objects.get(id=participante_id)
+    puntajes = Puntaje.objects.filter(participante=participante).order_by('-fecha').select_related('evento', 'categoria', 'subcategoria')
 
     context = {
         'participante': participante,
@@ -127,8 +129,6 @@ def guardar_puntaje(request):
     return render(request, 'guardar_puntaje.html', {'form': form})
 
 def cargar_puntos(request, participante_id):
-    # Lógica para cargar los puntos del participante
-    
     # Obtener el participante según su ID
     participante = Participante.objects.get(id=participante_id)
     
@@ -140,16 +140,17 @@ def cargar_puntos(request, participante_id):
             # Acceder a los datos del formulario
             fecha = form.cleaned_data['fecha']
             marca = form.cleaned_data['marca']
-            tiempo = form.cleaned_data['tiempo']
             evento = form.cleaned_data['evento']
             categoria = form.cleaned_data['categoria']
             subcategoria = form.cleaned_data['subcategoria']
             
+            # Combinar la fecha seleccionada con un tiempo predeterminado (00:00:00)
+            fecha_tiempo = datetime.combine(fecha, time.min)
+            
             # Crear una instancia del modelo Puntaje y guardarla
             puntaje = Puntaje(
-                fecha=fecha,
+                fecha=fecha_tiempo,
                 marca=marca,
-                tiempo=tiempo,
                 participante=participante,
                 evento=evento,
                 categoria=categoria,
@@ -158,11 +159,10 @@ def cargar_puntos(request, participante_id):
             puntaje.save()
             
             # Redireccionar o mostrar un mensaje de éxito
+            return HttpResponseRedirect('../../participante/' + str(participante_id))  # Reemplaza '/ruta/redireccionamiento/' por la URL a la que deseas redirigir
             
     else:
-        form = CargarPuntosForm(initial={'evento': evento_default, 'participante': participante})
-        form.fields['categoria'].queryset = Categoria.objects.filter(evento=evento_default)
-        form.fields['subcategoria'].queryset = Subcategoria.objects.filter(categoria__in=form.fields['categoria'].queryset)
+        form = CargarPuntosForm()
     
     return render(request, 'participante.html', {'form': form, 'participante': participante})
 
