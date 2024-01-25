@@ -611,11 +611,34 @@
 												<div class="separator mb-8"></div>
 												<!--end::Separator-->
 												<!--begin::Submit-->
-												<h2>Cargar Puntos</h2>
+												<h2>Cargar Puntaje</h2>
 												<form method="post" action="{% url 'cargar_puntos' participante.id %}">
 													{% csrf_token %}
-													{{ form.as_p }}
-													<input type="submit" value="Guardar">
+													<div class="form-group">
+														<label for="{{ form.fecha.id_for_label }}" class="fs-5 fw-semibold mb-2">Fecha:</label>
+														{{ form.fecha }}
+													  </div>
+													  
+													  <div class="form-group">
+														<label for="{{ form.marca.id_for_label }}" class="fs-5 fw-semibold mb-2">Marca:</label>
+														{{ form.marca }}
+													  </div>
+													  
+													  <div class="form-group">
+														<label for="{{ form.evento.id_for_label }}" class="fs-5 fw-semibold mb-2">Evento:</label>
+														{{ form.evento }}
+													  </div>
+													  
+													  <div class="form-group">
+														<label for="{{ form.categoria.id_for_label }}" class="fs-5 fw-semibold mb-2">Categoría:</label>
+														{{ form.categoria }}
+													  </div>
+													  
+													  <div class="form-group">
+														<label for="{{ form.subcategoria.id_for_label }}" class="fs-5 fw-semibold mb-2">Subcategoría:</label>
+														{{ form.subcategoria }}
+													  </div>
+													<input type="submit" value="Cargar Puntos" class="btn btn-primary">
 												  </form>
 												
 												

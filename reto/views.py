@@ -67,7 +67,7 @@ def lista_eventos(request):
     eventos = Evento.objects.order_by('-fecha_inicio')
     return render(request, 'lista_eventos2.html', {'eventos': eventos})
 
-def crear_participante(request):
+def crear_participante(request, cedula=None):
     if request.method == 'POST':
         form = ParticipanteForm(request.POST)
         if form.is_valid():
@@ -75,9 +75,10 @@ def crear_participante(request):
             participante.save()
             return redirect('../participantes.html')
     else:
-        form = ParticipanteForm()
+        form = ParticipanteForm(initial={'cedula': cedula}) if cedula else ParticipanteForm()
   
-    return render(request, 'crear_participante.html', {'form': form})
+    return render(request, 'crear_participante.html', {'form': form, 'cedula': cedula})
+
 
 def guardar_participante(request):
     if request.method == 'POST':
@@ -136,6 +137,26 @@ def cargar_puntos(request, participante_id):
         form = CargarPuntosForm(request.POST)
         if form.is_valid():
             # Procesar los datos del formulario y guardar el puntaje
+            # Código para guardar el puntaje
+            
+            # Redireccionar o mostrar un mensaje de éxito
+            return HttpResponseRedirect('../../participante/' + str(participante_id))  # Reemplaza '/ruta/redireccionamiento/' por la URL a la que deseas redirigir
+            
+    else:
+        form = CargarPuntosForm()
+    
+    return render(request, 'participante.html', {'form': form, 'participante': participante})
+
+
+
+def cargar_puntos(request, participante_id):
+    # Obtener el participante según su ID
+    participante = Participante.objects.get(id=participante_id)
+    
+    if request.method == 'POST':
+        form = CargarPuntosForm(request.POST)
+        if form.is_valid():
+            # Procesar los datos del formulario y guardar el puntaje
             
             # Acceder a los datos del formulario
             fecha = form.cleaned_data['fecha']
@@ -169,6 +190,19 @@ def cargar_puntos(request, participante_id):
 def obtener_categorias(request, evento_id):
     categorias = Categoria.objects.filter(evento_id=evento_id).values('id', 'nombre')
     return JsonResponse(list(categorias), safe=False)
+
+def buscar_participante(request):
+    if request.method == 'POST':
+        cedula = request.POST['cedula']
+        try:
+            participante = Participante.objects.get(cedula=cedula)
+            return HttpResponseRedirect(f'/participante/{participante.id}/')
+        except Participante.DoesNotExist:
+            return HttpResponseRedirect(f'/crear_participante/{cedula}/')
+    else:
+        return render(request, 'buscar_participante.html')
+    
+    
 """
 def guardar_representante(request):
     if request.method == 'POST':
