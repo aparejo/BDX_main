@@ -19,13 +19,13 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf.urls.static import static
-from reto.views import pantalla_view
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 from reto import views
 from reto.views import ParticipantesListView
 from reto.views import ParticipanteDetailView
 from reto import views
+from reto.views import PantallaView
 from reto.views import crear_evento, lista_eventos
 from reto.views import guardar_participante, guardar_puntaje, obtener_categorias #guardar_representante
 
@@ -38,7 +38,7 @@ class CustomLoginView(LoginView):
     
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('1/', pantalla_view, name='pantalla'),
+    path('<int:id_sucursal>/', PantallaView.as_view(), name='pantalla'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('', views.BASE, name='BASE'),

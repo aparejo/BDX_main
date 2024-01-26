@@ -13,16 +13,17 @@
   width: 348px;
   height: 230px;
 }
-.barquisimeto,
-.maria-prez1 {
+.barquisimeto {
   position: absolute;
   top: 44px;
   left: 70%;
   font-weight: 900;
 }
 .maria1-prez1 {
+  position: absolute;
   top: 313px;
   left: 141px;
+  font-weight: 900;
 }
 .puntos {
   color: var(--color-white);

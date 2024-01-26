@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Sucursal, UsuarioSucursal, Categoria, Subcategoria, Participante, Evento, User, Representante
+from .models import Sucursal, UsuarioSucursal, Categoria, Subcategoria, Participante, Evento, User, Representante,Puntaje
 
 
 class UsuarioSucursalInline(admin.StackedInline):
@@ -18,4 +18,5 @@ admin.site.register(Subcategoria)
 admin.site.register(Participante)
 admin.site.register(Evento)
 admin.site.register(Representante)
+admin.site.register(Puntaje)
 

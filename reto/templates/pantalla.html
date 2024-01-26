@@ -23,47 +23,69 @@
 
       <img class="logo-reto-1-icon" alt="" src="{% static 'images/logoreto-1@2x.png' %}" />
       {% block content %}
-      <div class="barquisimeto">{{ sucursal.nombre }}</div>
-      
-      {% for participante in participantes %}
-  {% if participante.categoria.nombre == "Básquetbol Femenino" %}
-  <div class="maria1-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
-  <div class="cat-l1-container{{ forloop.counter }}">
-    <span>{{ participante.subcategoria.nombre }} - </span>
-    <span class="puntos">{{ participante.puntos }} puntos</span>
-  </div>
-  {% endif %}
-{% endfor %}
+      <div class="barquisimeto">{{ evento.sucursal.nombre }}{{ puntaje.subcategoria.nombre }}</div>
 
-      {% for participante in participantes %}
-  {% if participante.categoria.nombre == "Básquetbol Masculino" %}
-  <div class="maria2-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
-  <div class="cat-l2-container{{ forloop.counter }}">
-    <span>{{ participante.subcategoria.nombre }} - </span>
-    <span class="puntos">{{ participante.puntos }} puntos</span>
-  </div>
-  {% endif %}
-{% endfor %}
+      {% for puntaje in puntajes %}
+        {% if puntaje.evento.id == 2 %}
+        {% with 1 as counter %}
+          {% if puntaje.categoria.nombre == "Básquetbol Femenino" %}
+          
+            <div class="maria1-prez{{ counter }}">{{ puntaje.participante.nombre }} {{ puntaje.participante.apellido }}</div>
+            <div class="cat-l1-container{{ counter }}">
+              <span>{{ puntaje.subcategoria.nombre }} - </span>
+              <span class="puntos">{{ puntaje.marca }} puntos</span>
+            </div>
+           {% endif %}
+          
+           {% with counter|add:1 as counter %}
+          {% endwith %}
+          {% endwith %}
+          
 
-      {% for participante in participantes %}
-  {% if participante.categoria.nombre == "Fútbol Femenino" %}
-  <div class="maria3-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
-  <div class="cat-l3-container{{ forloop.counter }}">
-    <span>{{ participante.subcategoria.nombre }} - </span>
-    <span class="puntos">{{ participante.puntos }} puntos</span>
-  </div>
-  {% endif %}
-{% endfor %}
+          {% with 1 as counter %}
+          {% if puntaje.categoria.nombre == "Básquetbol Masculino" %}
+          
+            <div class="maria2-prez{{ counter }}">{{ puntaje.participante.nombre }} {{ puntaje.participante.apellido }}</div>
+            <div class="cat-l2-container{{ counter }}">
+              <span>{{ puntaje.subcategoria.nombre }} - </span>
+              <span class="puntos">{{ puntaje.marca }} puntos</span>
+            </div>
+           {% endif %}
+          
+ {% with counter|add:1 as counter %}
+          {% endwith %}
+          {% endwith %}
+          
 
-      {% for participante in participantes %}
-  {% if participante.categoria.nombre == "Fútbol Masculino" %}
-  <div class="maria4-prez{{ forloop.counter }}">{{ participante.nombre }} {{ participante.apellido }}</div>
-  <div class="cat-l4-container{{ forloop.counter }}">
-    <span>{{ participante.subcategoria.nombre }} - </span>
-    <span class="puntos">{{ participante.puntos }} puntos</span>
-  </div>
-  {% endif %}
-{% endfor %}
+          {% with 1 as counter %}
+          {% if puntaje.categoria.nombre == "Fútbol Femenino" %}
+          
+            <div class="maria3-prez{{ counter }}">{{ puntaje.participante.nombre }} {{ puntaje.participante.apellido }}</div>
+            <div class="cat-l3-container{{ counter }}">
+              <span>{{ puntaje.subcategoria.nombre }} - </span>
+              <span class="puntos">{{ puntaje.marca }} puntos</span>
+            </div>
+           
+          {% endif %}
+          {% with counter|add:1 as counter %}
+          {% endwith %}
+          {% endwith %}
+           {% with 1 as counter %}
+          {% if puntaje.categoria.nombre == "Fútbol Masculino" %}
+           
+            <div class="maria4-prez{{ counter }}">{{ puntaje.participante.nombre }} {{ puntaje.participante.apellido }}</div>
+            <div class="cat-l4-container{{ counter }}">
+              <span>{{ puntaje.subcategoria.nombre }} - </span>
+              <span class="puntos">{{ puntaje.marca }} puntos</span>
+            </div>
+           
+          {% endif %}
+          {% with counter|add:1 as counter %}
+          {% endwith %}
+          {% endwith %}
+        {% endif %}
+      {% endfor %}
+
       <div class="bsquetbol">Básquetbol</div>
       <div class="femenino">Femenino</div>
       <div class="bsquetbol1">Básquetbol</div>

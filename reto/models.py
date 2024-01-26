@@ -118,20 +118,9 @@ class Representante(models.Model):
     parentezco = models.CharField(max_length=100)
     
 class Puntaje(models.Model):
-    OPCIONES_MARCA = [
-        ('puntaje', 'Puntaje'),
-        ('tiempo', 'Tiempo'),
-    ]
-    
     fecha = models.DateField()
     marca = models.IntegerField(null=True)
-    tiempo = models.TimeField(null=True)
     participante = models.ForeignKey(Participante, on_delete=models.CASCADE)
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     subcategoria = models.ForeignKey(Subcategoria, on_delete=models.CASCADE, null=True)
-    
-    def save(self, *args, **kwargs):
-        if self.marca and self.tiempo:
-            raise ValueError("Solo se puede proporcionar un valor para 'marca' o 'tiempo', no ambos.")
-        super().save(*args, **kwargs)

@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from .forms import  CargarPuntosForm #PuntajeForm,
 from datetime import datetime, time
 from django.http import HttpResponseRedirect
+from django.db.models import Max
+from django.views import View
 
 def ver_eventos(request):
     eventos = Evento.objects.all()
@@ -26,21 +28,16 @@ class ParticipanteDetailView(DetailView):
     context_object_name = 'participante'
     categorias = Categoria.objects.all()
     
-def pantalla_view(request):
-    sucursal = Sucursal.objects.first()
-    categorias = Categoria.objects.all() 
-    participantes = Participante.objects.filter(sucursal=sucursal).select_related('subcategoria')
-    evento = Evento.objects.first() 
+class PantallaView(View):
+    def get(self, request, id_sucursal):
+        sucursal = Sucursal.objects.get(pk=id_sucursal)
+        evento = Evento.objects.filter(sucursal=sucursal).latest('fecha_inicio')
+        min_marca = 0  # Asigna el valor mínimo deseado para el puntaje
+        max_marca = 100
+        puntajes = Puntaje.objects.filter(evento=evento, marca__gte=min_marca, marca__lte=max_marca)
 
-    context = {
-        'sucursal': sucursal,
-        'categorias': categorias,
-        'participantes': participantes,
-        'evento': evento,
-    }
-
-    return render(request, 'pantalla.html', context)
-
+        return render(request, 'pantalla.html', {'evento': evento, 'puntajes': puntajes})
+    
 def crear_evento(request):
     sucursales = Sucursal.objects.all()
     if request.method == 'POST':
