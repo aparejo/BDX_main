@@ -81,7 +81,7 @@
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link active" href="../">
+											<a class="menu-link active" href="../../">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -93,7 +93,7 @@
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="../../demo9/dist/dashboards/ecommerce.html">
+											<a class="menu-link" href="../../participantes.html">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -105,7 +105,7 @@
 										<!--begin:Menu item-->
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="../../demo9/dist/dashboards/projects.html">
+											<a class="menu-link" href="../../">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -159,7 +159,7 @@
 							<!--begin::Mobile logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 								<a href="../../">
-									<img alt="Logo" src="{% static 'assets/media/logos/logo.png" class="h-35px' %}"" />
+									<img alt="Logo" src="{% static 'assets/media/logos/logo.png' %}"  class="h-35px" />
 								</a>
 							</div>
 							<!--end::Mobile logo-->
@@ -196,8 +196,7 @@
 									<!--begin::Search-->
 									<div id="kt_header_search" class="header-search d-flex align-items-center w-lg-250px" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu" data-kt-search-responsive="false" data-kt-menu-trigger="auto" data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
 										<!--begin::Form-->
-										<form data-kt-search-element="form" class="w-100 position-relative" autocomplete="off">
-											<!--begin::Hidden input(Added to disable form autocomplete)-->
+										<form method="post" action="{% url 'buscar_participante' %}">
 											<input type="hidden" />
 											<!--end::Hidden input-->
 											<!--begin::Icon-->
@@ -206,9 +205,10 @@
 												<span class="path2"></span>
 											</i>
 											<!--end::Icon-->
-											<!--begin::Input-->
-											<input type="text" class="form-control custom-form-control ps-13" name="search" value="" placeholder="Buscar" data-kt-search-element="input" />
-											<!--end::Input-->
+											
+												{% csrf_token %}
+												<input type="text" class="form-control custom-form-control ps-13" name="cedula" value="" placeholder="Buscar" data-kt-search-element="input" />
+											
 											<!--begin::Spinner-->
 											<span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5" data-kt-search-element="spinner">
 												<span class="spinner-border h-15px w-15px align-middle text-gray-400"></span>
@@ -387,7 +387,11 @@
 											<!--begin::Menu item-->
 											
 											<div class="menu-item px-5">
-												<a href="../../login" class="menu-link px-5">Salir</a>
+												<a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
+
+<form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+    {% csrf_token %}
+</form>
 											</div>
 											<!--end::Menu item-->
 										</div>

@@ -12,6 +12,9 @@ th, td {
   padding: 10px !important;
   text-align: left !important;
 }
+.w-ancho {
+  width: 400px;
+}
 
 th {
   background-color: lightgray !important;

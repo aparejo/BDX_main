@@ -20,7 +20,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from reto import views
 from reto.views import ParticipantesListView
 from reto.views import ParticipanteDetailView
@@ -28,6 +28,7 @@ from reto import views
 from reto.views import PantallaView
 from reto.views import crear_evento, lista_eventos
 from reto.views import guardar_participante, guardar_puntaje, obtener_categorias #guardar_representante
+from reto.views import EliminarDuplicadosView
 
 
 
@@ -37,10 +38,11 @@ class CustomLoginView(LoginView):
     template_name = 'authentication/login.html'
     
 urlpatterns = [
+    path('eliminar-duplicados/', EliminarDuplicadosView.as_view(), name='eliminar_duplicados'),
     path('admin/', admin.site.urls),
     path('<int:id_sucursal>/', PantallaView.as_view(), name='pantalla'),
-    path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', LoginView.as_view(template_name='authentication/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('', views.BASE, name='BASE'),
     path('buscar-participante/', views.buscar_participante, name='buscar_participante'),
     path('participante/<int:participante_id>/', views.participante, name='participante'),
