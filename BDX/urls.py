@@ -25,7 +25,7 @@ from reto import views
 from reto.views import ParticipantesListView
 from reto.views import ParticipanteDetailView
 from reto import views
-from reto.views import PantallaView
+from reto.views import PantallaView, TotemView
 from reto.views import crear_evento, lista_eventos
 from reto.views import guardar_participante, guardar_puntaje, obtener_categorias #guardar_representante
 from reto.views import EliminarDuplicadosView
@@ -41,6 +41,7 @@ urlpatterns = [
     path('eliminar-duplicados/', EliminarDuplicadosView.as_view(), name='eliminar_duplicados'),
     path('admin/', admin.site.urls),
     path('<int:id_sucursal>/', PantallaView.as_view(), name='pantalla'),
+    path('totem/<int:id_sucursal>/', TotemView.as_view(), name='totem'),
     path('login/', LoginView.as_view(template_name='authentication/login.html'), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('', views.BASE, name='BASE'),

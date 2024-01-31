@@ -63,6 +63,286 @@ class PantallaView(View):
 
         return render(request, 'pantalla.html', {'evento': evento, 'puntajes': puntajes})
 """
+class TotemView(View):
+    def get(self, request, id_sucursal):
+        sucursal = Sucursal.objects.get(pk=id_sucursal)
+        evento = Evento.objects.filter(sucursal=sucursal).latest('fecha_inicio')
+
+        # Obtener los últimos 5 puntajes para cada categoría
+        categorias = Categoria.objects.filter(evento=evento)
+        ultimos_participantes = {}
+
+        for categoria in categorias:
+            puntajes_categoria = Puntaje.objects.filter(evento=evento, categoria=categoria).order_by('-fecha')[:5]
+
+            if categoria.nombre == "Básquetbol Femenino":
+                if puntajes_categoria:
+                    ultimos_participantes['nombrebf1'] = puntajes_categoria[0].participante.nombre
+                    ultimos_participantes['apellidobf1'] = puntajes_categoria[0].participante.apellido
+                    ultimos_participantes['subcategoriabf1'] = puntajes_categoria[0].subcategoria.nombre
+                    ultimos_participantes['puntajebf1'] = puntajes_categoria[0].marca
+                else:
+                    ultimos_participantes['nombrebf1'] = ''
+                    ultimos_participantes['apellidobf1'] = ''
+                    ultimos_participantes['subcategoriabf1'] = ''
+                    ultimos_participantes['puntajebf1'] = ''
+
+                if len(puntajes_categoria) > 1:
+
+                    ultimos_participantes['nombrebf2'] = puntajes_categoria[1].participante.nombre
+                    ultimos_participantes['apellidobf2'] = puntajes_categoria[1].participante.apellido
+                    ultimos_participantes['subcategoriabf2'] = puntajes_categoria[1].subcategoria.nombre
+                    ultimos_participantes['puntajebf2'] = puntajes_categoria[1].marca
+                else:
+                    ultimos_participantes['nombrebf2'] = ''
+                    ultimos_participantes['apellidobf2'] = ''
+                    ultimos_participantes['subcategoriabf2'] = ''
+                    ultimos_participantes['puntajebf2'] = ''
+
+                if len(puntajes_categoria) > 2:
+
+                    ultimos_participantes['nombrebf3'] = puntajes_categoria[2].participante.nombre
+                    ultimos_participantes['apellidobf3'] = puntajes_categoria[2].participante.apellido
+                    ultimos_participantes['subcategoriabf3'] = puntajes_categoria[2].subcategoria.nombre
+                    ultimos_participantes['puntajebf3'] = puntajes_categoria[2].marca
+                
+                else:
+                    ultimos_participantes['nombrebf3'] = ''
+                    ultimos_participantes['apellidobf3'] = ''
+                    ultimos_participantes['subcategoriabf3'] = ''
+                    ultimos_participantes['puntajebf3'] = ''
+
+                if len(puntajes_categoria) > 3:
+
+                    ultimos_participantes['nombrebf4'] = puntajes_categoria[3].participante.nombre
+                    ultimos_participantes['apellidobf4'] = puntajes_categoria[3].participante.apellido
+                    ultimos_participantes['subcategoriabf4'] = puntajes_categoria[3].subcategoria.nombre
+                    ultimos_participantes['puntajebf4'] = puntajes_categoria[3].marca
+                
+                else:
+                    ultimos_participantes['nombrebf4'] = ''
+                    ultimos_participantes['apellidobf4'] = ''
+                    ultimos_participantes['subcategoriabf4'] = ''
+                    ultimos_participantes['puntajebf4'] = ''
+
+                if len(puntajes_categoria) > 4:
+                    ultimos_participantes['nombrebf5'] = puntajes_categoria[4].participante.nombre
+                    ultimos_participantes['apellidobf5'] = puntajes_categoria[4].participante.apellido
+                    ultimos_participantes['subcategoriabf5'] = puntajes_categoria[4].subcategoria.nombre
+                    ultimos_participantes['puntajebf5'] = puntajes_categoria[4].marca
+                
+                else:
+                    ultimos_participantes['nombrebf5'] = ''
+                    ultimos_participantes['apellidobf5'] = ''
+                    ultimos_participantes['subcategoriabf5'] = ''
+                    ultimos_participantes['puntajebf5'] = ''
+
+            elif categoria.nombre == "Básquetbol Masculino":
+                if puntajes_categoria:
+                    ultimos_participantes['nombrebm1'] = puntajes_categoria[0].participante.nombre
+                    ultimos_participantes['apellidobm1'] = puntajes_categoria[0].participante.apellido
+                    ultimos_participantes['subcategoriabm1'] = puntajes_categoria[0].subcategoria.nombre
+                    ultimos_participantes['puntajebm1'] = puntajes_categoria[0].marca
+                
+                else:
+                    ultimos_participantes['nombrebm1'] = ''
+                    ultimos_participantes['apellidobm1'] = ''
+                    ultimos_participantes['subcategoriabm1'] = ''
+                    ultimos_participantes['puntajebm1'] = ''
+
+                if len(puntajes_categoria) > 1:
+    
+                    ultimos_participantes['nombrebm2'] = puntajes_categoria[1].participante.nombre
+                    ultimos_participantes['apellidobm2'] = puntajes_categoria[1].participante.apellido
+                    ultimos_participantes['subcategoriabm2'] = puntajes_categoria[1].subcategoria.nombre
+                    ultimos_participantes['puntajebm2'] = puntajes_categoria[1].marca
+                
+                else:
+                    ultimos_participantes['nombrebm2'] = ''
+                    ultimos_participantes['apellidobm2'] = ''
+                    ultimos_participantes['subcategoriabm2'] = ''
+                    ultimos_participantes['puntajebm2'] = ''
+
+                if len(puntajes_categoria) > 2:
+    
+                    ultimos_participantes['nombrebm3'] = puntajes_categoria[2].participante.nombre
+                    ultimos_participantes['apellidobm3'] = puntajes_categoria[2].participante.apellido
+                    ultimos_participantes['subcategoriabm3'] = puntajes_categoria[2].subcategoria.nombre
+                    ultimos_participantes['puntajebm3'] = puntajes_categoria[2].marca
+                
+                else:
+                    ultimos_participantes['nombrebm3'] = ''
+                    ultimos_participantes['apellidobm3'] = ''
+                    ultimos_participantes['subcategoriabm3'] = ''
+                    ultimos_participantes['puntajebm3'] = ''
+
+                if len(puntajes_categoria) > 3:
+    
+                    ultimos_participantes['nombrebm4'] = puntajes_categoria[3].participante.nombre
+                    ultimos_participantes['apellidobm4'] = puntajes_categoria[3].participante.apellido
+                    ultimos_participantes['subcategoriabm4'] = puntajes_categoria[3].subcategoria.nombre
+                    ultimos_participantes['puntajebm4'] = puntajes_categoria[3].marca
+                
+                else:
+                    ultimos_participantes['nombrebm4'] = ''
+                    ultimos_participantes['apellidobm4'] = ''
+                    ultimos_participantes['subcategoriabm4'] = ''
+                    ultimos_participantes['puntajebm4'] = ''
+
+                if len(puntajes_categoria) > 4:
+                
+                    ultimos_participantes['nombrebm5'] = puntajes_categoria[4].participante.nombre
+                    ultimos_participantes['apellidobm5'] = puntajes_categoria[4].participante.apellido
+                    ultimos_participantes['subcategoriabm5'] = puntajes_categoria[4].subcategoria.nombre
+                    ultimos_participantes['puntajebm5'] = puntajes_categoria[4].marca
+                
+                else:
+                    ultimos_participantes['nombrebm5'] = ''
+                    ultimos_participantes['apellidobm5'] = ''
+                    ultimos_participantes['subcategoriabm5'] = ''
+                    ultimos_participantes['puntajebm5'] = ''
+                    
+
+            elif categoria.nombre == "Fútbol Femenino":
+                
+                if puntajes_categoria:
+                    
+                    ultimos_participantes['nombreff1'] = puntajes_categoria[0].participante.nombre
+                    ultimos_participantes['apellidoff1'] = puntajes_categoria[0].participante.apellido
+                    ultimos_participantes['subcategoriaff1'] = puntajes_categoria[0].subcategoria.nombre
+                    ultimos_participantes['puntajeff1'] = puntajes_categoria[0].marca
+                
+                else:
+                    ultimos_participantes['nombreff1'] = ''
+                    ultimos_participantes['apellidoff1'] = ''
+                    ultimos_participantes['subcategoriaff1'] = ''
+                    ultimos_participantes['puntajeff1'] = ''
+
+                if len(puntajes_categoria) > 1:
+                    
+                    ultimos_participantes['nombreff2'] = puntajes_categoria[1].participante.nombre
+                    ultimos_participantes['apellidoff2'] = puntajes_categoria[1].participante.apellido
+                    ultimos_participantes['subcategoriaff2'] = puntajes_categoria[1].subcategoria.nombre
+                    ultimos_participantes['puntajeff2'] = puntajes_categoria[1].marca
+                
+                else:
+                    ultimos_participantes['nombreff2'] = ''
+                    ultimos_participantes['apellidoff2'] = ''
+                    ultimos_participantes['subcategoriaff2'] = ''
+                    ultimos_participantes['puntajeff2'] = ''
+
+                if len(puntajes_categoria) > 2:
+                    
+                    ultimos_participantes['nombreff3'] = puntajes_categoria[2].participante.nombre
+                    ultimos_participantes['apellidoff3'] = puntajes_categoria[2].participante.apellido
+                    ultimos_participantes['subcategoriaff3'] = puntajes_categoria[2].subcategoria.nombre
+                    ultimos_participantes['puntajeff3'] = puntajes_categoria[2].marca
+                
+                else:
+                    ultimos_participantes['nombreff3'] = ''
+                    ultimos_participantes['apellidoff3'] = ''
+                    ultimos_participantes['subcategoriaff3'] = ''
+                    ultimos_participantes['puntajeff3'] = ''
+                
+                if len(puntajes_categoria) > 3:
+                    
+                    ultimos_participantes['nombreff4'] = puntajes_categoria[3].participante.nombre
+                    ultimos_participantes['apellidoff4'] = puntajes_categoria[3].participante.apellido
+                    ultimos_participantes['subcategoriaff4'] = puntajes_categoria[3].subcategoria.nombre
+                    ultimos_participantes['puntajeff4'] = puntajes_categoria[3].marca
+                
+                else:
+                    ultimos_participantes['nombreff4'] = ''
+                    ultimos_participantes['apellidoff4'] = ''
+                    ultimos_participantes['subcategoriaff4'] = ''
+                    ultimos_participantes['puntajeff4'] = ''
+                
+                if len(puntajes_categoria) > 4:
+                    
+                    ultimos_participantes['nombreff5'] = puntajes_categoria[4].participante.nombre
+                    ultimos_participantes['apellidoff5'] = puntajes_categoria[4].participante.apellido
+                    ultimos_participantes['subcategoriaff5'] = puntajes_categoria[4].subcategoria.nombre
+                    ultimos_participantes['puntajeff5'] = puntajes_categoria[4].marca
+                
+                else:
+                    ultimos_participantes['nombreff5'] = ''
+                    ultimos_participantes['apellidoff5'] = ''
+                    ultimos_participantes['subcategoriaff5'] = ''
+                    ultimos_participantes['puntajeff5'] = ''
+
+            elif categoria.nombre == "Fútbol Masculino":
+                
+                if puntajes_categoria:
+                    
+                    ultimos_participantes['nombrefm1'] = puntajes_categoria[0].participante.nombre
+                    ultimos_participantes['apellidofm1'] = puntajes_categoria[0].participante.apellido
+                    ultimos_participantes['subcategoriafm1'] = puntajes_categoria[0].subcategoria.nombre
+                    ultimos_participantes['puntajefm1'] = puntajes_categoria[0].marca
+                else:
+                    ultimos_participantes['nombrefm1'] = ''
+                    ultimos_participantes['apellidofm1'] = ''
+                    ultimos_participantes['subcategoriafm1'] = ''
+                    ultimos_participantes['puntajefm1'] = ''
+
+                if len(puntajes_categoria) > 1:
+                
+                    ultimos_participantes['nombrefm2'] = puntajes_categoria[1].participante.nombre
+                    ultimos_participantes['apellidofm2'] = puntajes_categoria[1].participante.apellido
+                    ultimos_participantes['subcategoriafm2'] = puntajes_categoria[1].subcategoria.nombre
+                    ultimos_participantes['puntajefm2'] = puntajes_categoria[1].marca
+                
+                else:
+                    ultimos_participantes['nombrefm2'] = ''
+                    ultimos_participantes['apellidofm2'] = ''
+                    ultimos_participantes['subcategoriafm12'] = ''
+                    ultimos_participantes['puntajefm2'] = ''
+                    
+                if len(puntajes_categoria) > 2:
+
+                    ultimos_participantes['nombrefm3'] = puntajes_categoria[2].participante.nombre
+                    ultimos_participantes['apellidofm3'] = puntajes_categoria[2].participante.apellido
+                    ultimos_participantes['subcategoriafm3'] = puntajes_categoria[2].subcategoria.nombre
+                    ultimos_participantes['puntajefm3'] = puntajes_categoria[2].marca
+                
+                else:
+                    ultimos_participantes['nombrefm3'] = ''
+                    ultimos_participantes['apellidofm3'] = ''
+                    ultimos_participantes['subcategoriafm3'] = ''
+                    ultimos_participantes['puntajefm3'] = ''
+                    
+                if len(puntajes_categoria) > 3:
+
+                    ultimos_participantes['nombrefm4'] = puntajes_categoria[3].participante.nombre
+                    ultimos_participantes['apellidofm4'] = puntajes_categoria[3].participante.apellido
+                    ultimos_participantes['subcategoriafm4'] =puntajes_categoria[3].subcategoria.nombre
+                    ultimos_participantes['puntajefm4'] = puntajes_categoria[3].marca
+                
+                else:
+                    ultimos_participantes['nombrefm4'] = ''
+                    ultimos_participantes['apellidofm4'] = ''
+                    ultimos_participantes['subcategoriafm4'] = ''
+                    ultimos_participantes['puntajefm4'] = ''
+                    
+                if len(puntajes_categoria) > 4:
+                
+                    ultimos_participantes['nombrefm5'] = puntajes_categoria[4].participante.nombre
+                    ultimos_participantes['apellidofm5'] = puntajes_categoria[4].participante.apellido
+                    ultimos_participantes['subcategoriafm5'] = puntajes_categoria[4].subcategoria.nombre
+                    ultimos_participantes['puntajefm5'] = puntajes_categoria[4].marca
+                
+                else:
+                    ultimos_participantes['nombrefm5'] = ''
+                    ultimos_participantes['apellidofm5'] = ''
+                    ultimos_participantes['subcategoriafm5'] = ''
+                    ultimos_participantes['puntajefm5'] = ''
+
+        context = {
+            'evento': evento,
+            'ultimos_participantes': ultimos_participantes
+        }
+
+        return render(request, 'totem.html', context)
+
 class PantallaView(View):
     def get(self, request, id_sucursal):
         sucursal = Sucursal.objects.get(pk=id_sucursal)

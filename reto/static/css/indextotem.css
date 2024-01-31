@@ -1,0 +1,453 @@
+.logo-reto-1-icon,
+.oscuro-marron-1-icon {
+  position: absolute;
+  top: -13px;
+  left: -22px;
+  width: 3000px;
+  height: 1900px;
+  object-fit: cover;
+}
+.logo-reto-1-icon {
+  top: 20px;
+  left: 29px;
+  width: 348px;
+  height: 230px;
+}
+.barquisimeto {
+  position: absolute;
+  top: 44px;
+  left: 70%;
+  font-weight: 900;
+}
+.maria1-prez1 {
+  position: absolute;
+  top: 313px;
+  left: 141px;
+  font-weight: 900;
+}
+.puntos {
+  color: var(--color-white);
+}
+.cat-l1-container1 {
+  position: absolute;
+  top: 346px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria1-prez2 {
+  position: absolute;
+  top: 383px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l1-container2 {
+  position: absolute;
+  top: 416px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria1-prez3 {
+  position: absolute;
+  top: 453px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l1-container3 {
+  position: absolute;
+  top: 486px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria1-prez4 {
+  position: absolute;
+  top: 523px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l1-container4 {
+  position: absolute;
+  top: 556px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria1-prez5 {
+  position: absolute;
+  top: 603px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l1-container5 {
+  position: absolute;
+  top: 636px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria2-prez1 {
+  position: absolute;
+  top: 313px;
+  left: 50%;
+  font-weight: 900;
+}
+.cat-l2-container1 {
+  position: absolute;
+  top: 346px;
+  left: 50%;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria2-prez2 {
+  position: absolute;
+  top: 383px;
+  left: 50%;
+  font-weight: 900;
+}
+.cat-l2-container2 {
+  position: absolute;
+  top: 416px;
+  left: 50%;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria2-prez3 {
+  position: absolute;
+  top: 453px;
+  left: 50%;
+  font-weight: 900;
+}
+.cat-l2-container3 {
+  position: absolute;
+  top: 486px;
+  left: 50%;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria2-prez4 {
+  position: absolute;
+  top: 523px;
+  left: 50%;
+  font-weight: 900;
+}
+.cat-l2-container4 {
+  position: absolute;
+  top: 556px;
+  left: 50%;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria2-prez5 {
+  position: absolute;
+  top: 603px;
+  left: 50%;
+  font-weight: 900;
+}
+.cat-l2-container5 {
+  position: absolute;
+  top: 636px;
+  left: 50%;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria3-prez1 {
+  position: absolute;
+  top: 800px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l3-container1 {
+  position: absolute;
+  top: 840px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria3-prez2 {
+  position: absolute;
+  top: 880px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l3-container2 {
+  position: absolute;
+  top: 916px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria3-prez3 {
+  position: absolute;
+  top: 950px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l3-container3 {
+  position: absolute;
+  top: 986px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria3-prez4 {
+  position: absolute;
+  top: 1023px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l3-container4 {
+  position: absolute;
+  top: 1056px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria3-prez5 {
+  position: absolute;
+  top: 1103px;
+  left:141px;
+  font-weight: 900;
+}
+.cat-l3-container5 {
+  position: absolute;
+  top: 1136px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria4-prez1 {
+  position: absolute;
+  top: 800px;
+  left: 50%;
+  font-weight: 900;
+}
+.cat-l4-container1 {
+  position: absolute;
+  top: 840px;
+  left: 50%;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria4-prez2 {
+  position: absolute;
+  top: 880px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l4-container2 {
+  position: absolute;
+  top: 916px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria4-prez3 {
+  position: absolute;
+  top: 950px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l4-container3 {
+  position: absolute;
+  top: 986px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria4-prez4 {
+  position: absolute;
+  top: 1025px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l4-container4 {
+  position: absolute;
+  top: 1061px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.maria4-prez5 {
+  position: absolute;
+  top: 1100px;
+  left: 141px;
+  font-weight: 900;
+}
+.cat-l4-container5 {
+  position: absolute;
+  top: 1136px;
+  left: 141px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 265px;
+  height: 37px;
+  color: var(--color-red);
+}
+.bsquetbol,
+.femenino {
+  position: absolute;
+  top: 665.89px;
+  left: 32px;
+  font-size: var(--font-size-29xl);
+  font-weight: 900;
+  transform: rotate(-89.43deg);
+  transform-origin: 0 0;
+}
+.femenino {
+  top: 645.19px;
+  left: 55.86px;
+  font-size: var(--font-size-35xl);
+  color: var(--color-dimgray);
+  display: inline-block;
+  width: 267.21px;
+  height: 90.48px;
+}
+.bsquetbol1 {
+  top: 665.89px;
+  left: 45%;
+  font-size: var(--font-size-29xl);
+}
+.bsquetbol1,
+.ftbol,
+.masculino {
+  position: absolute;
+  font-weight: 900;
+  transform: rotate(-89.43deg);
+  transform-origin: 0 0;
+}
+.masculino {
+  top: 645.19px;
+  left: 46%;
+  font-size: var(--font-size-35xl);
+  color: var(--color-dimgray);
+  display: inline-block;
+  width: 318.19px;
+  height: 98.98px;
+}
+.ftbol {
+  top: 1160px;
+  left: 45%;
+  font-size: var(--font-size-29xl);
+}
+.masculino1 {
+  top: 1140px;
+  left: 46%;
+  font-size: var(--font-size-35xl);
+  font-weight: 900;
+  color: var(--color-dimgray);
+  display: inline-block;
+  width: 318.19px;
+  height: 98.98px;
+}
+.femenino1,
+.ftbol1,
+.masculino1 {
+  position: absolute;
+  transform: rotate(-89.43deg);
+  transform-origin: 0 0;
+}
+.ftbol1 {
+  top: 1160px;
+  left: 32px;
+  font-size: var(--font-size-29xl);
+  font-weight: 900;
+}
+.femenino1 {
+  top: 1140.19px;
+  left: 55.86px;
+  font-size: var(--font-size-35xl);
+  color: var(--color-dimgray);
+  display: inline-block;
+  width: 318.19px;
+  height: 98.98px;
+}
+.femenino1,
+.semana {
+  font-weight: 900;
+}
+.mes,
+.span {
+  font-family: var(--font-inter);
+}
+.mes {
+  font-weight: 900;
+}
+.semana-1-mes-1 {
+  margin: 0;
+}
+.semana-1-container {
+  position: absolute;
+  top: 106px;
+  left: 50%;
+  font-size: 30px;
+}
+.totem-1 {
+  position: relative;
+  background-color: var(--color-black);
+  width: 100%;
+  height: 5000px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-8xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/indextotem.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap"
+    />
+    <link rel="shortcut icon" href="{% static 'assets/media/logos/cropped-r-redvital-192x192.png' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="totem-1">
+      <img
+        class="oscuro-marron-1-icon"
+        alt=""
+        src="{% static 'images/oscuro-marron-1@2x.png' %}"
+      />
+
+      <img class="logo-reto-1-icon" alt="" src="{% static 'images/logoreto-1@2x.png' %}" />
+      
+      {% block content %}
+      <div class="barquisimeto">{{ evento.sucursal.nombre }}{{ puntaje.subcategoria.nombre }}</div>
+
+    
+      <div class="maria1-prez1">{{ ultimos_participantes.nombrebf1 }} {{ ultimos_participantes.apellidobf1 }}</div>
+      <div class="cat-l1-container1">
+        <span>{{ ultimos_participantes.subcategoriabf1 }} - </span>
+        <span class="puntos">{{ ultimos_participantes.puntajebf1 }} puntos</span>
+      </div>
+
+      <div class="maria1-prez2">{{ ultimos_participantes.nombrebf2 }} {{ ultimos_participantes.apellidobf2 }}</div>
+        <div class="cat-l1-container2">
+          <span>{{ ultimos_participantes.subcategoriabf2 }} - </span>
+          <span class="puntos">{{ ultimos_participantes.puntajebf2 }} puntos</span>
+        </div>
+        <div class="maria1-prez3">{{ ultimos_participantes.nombrebf3 }} {{ ultimos_participantes.apellidobf3 }}</div>
+        <div class="cat-l1-container3">
+          <span>{{ ultimos_participantes.subcategoriabf3 }} - </span>
+          <span class="puntos">{{ ultimos_participantes.puntajebf3 }} puntos</span>
+        </div>
+        <div class="maria1-prez4">{{ ultimos_participantes.nombrebf4 }} {{ ultimos_participantes.apellidobf4 }}</div>
+        <div class="cat-l1-container4">
+          <span>{{ ultimos_participantes.subcategoriabf4 }} - </span>
+          <span class="puntos">{{ ultimos_participantes.puntajebf4 }} puntos</span>
+        </div><div class="maria1-prez5">{{ ultimos_participantes.nombrebf5 }} {{ ultimos_participantes.apellidobf5 }}</div>
+        <div class="cat-l1-container5">
+          <span>{{ ultimos_participantes.subcategoriabf5 }} - </span>
+          <span class="puntos">{{ ultimos_participantes.puntajebf5 }} puntos</span>
+        </div>
+        
+            <div class="maria2-prez1">{{ ultimos_participantes.nombrebm1}} {{ ultimos_participantes.apellidobm1 }}</div>
+            <div class="cat-l2-container1">
+              <span>{{ ultimos_participantes.subcategoriabm1 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajebm1 }} puntos</span>
+            </div>
+            <div class="maria2-prez2">{{ ultimos_participantes.nombrebm2}} {{ ultimos_participantes.apellidobm2 }}</div>
+            <div class="cat-l2-container2">
+              <span>{{ ultimos_participantes.subcategoriabm2 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajebm2 }} puntos</span>
+            </div>
+            <div class="maria2-prez3">{{ ultimos_participantes.nombrebm3}} {{ ultimos_participantes.apellidobm3 }}</div>
+            <div class="cat-l2-container3">
+              <span>{{ ultimos_participantes.subcategoriabm3 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajebm3 }} puntos</span>
+            </div>
+            <div class="maria2-prez4">{{ ultimos_participantes.nombrebm4}} {{ ultimos_participantes.apellidobm4 }}</div>
+            <div class="cat-l2-container4">
+              <span>{{ ultimos_participantes.subcategoriabm4 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajebm4 }} puntos</span>
+            </div>
+            <div class="maria2-prez5">{{ ultimos_participantes.nombrebm5}} {{ ultimos_participantes.apellidobm5 }}</div>
+            <div class="cat-l2-container5">
+              <span>{{ ultimos_participantes.subcategoriabm5 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajebm5 }} puntos</span>
+            </div>
+       
+            <div class="maria3-prez1">{{ ultimos_participantes.nombreff1 }} {{ ultimos_participantes.apellidoff1 }}</div>
+            <div class="cat-l3-container1">
+              <span>{{ ultimos_participantes.subcategoriaff1 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajeff1 }} puntos</span>
+            </div>
+            <div class="maria3-prez2">{{ ultimos_participantes.nombreff2 }} {{ ultimos_participantes.apellidoff2 }}</div>
+            <div class="cat-l3-container2">
+              <span>{{ ultimos_participantes.subcategoriaff2 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajeff2 }} puntos</span>
+            </div>
+            <div class="maria3-prez3">{{ ultimos_participantes.nombreff3 }} {{ ultimos_participantes.apellidoff3 }}</div>
+            <div class="cat-l3-container3">
+              <span>{{ ultimos_participantes.subcategoriaff3 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajeff3 }} puntos</span>
+            </div>
+            <div class="maria3-prez4">{{ ultimos_participantes.nombreff4 }} {{ ultimos_participantes.apellidoff4 }}</div>
+            <div class="cat-l3-container4">
+              <span>{{ ultimos_participantes.subcategoriaff4 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajeff4 }} puntos</span>
+            </div>
+            <div class="maria3-prez5">{{ ultimos_participantes.nombreff5 }} {{ ultimos_participantes.apellidoff5 }}</div>
+            <div class="cat-l3-container5">
+              <span>{{ ultimos_participantes.subcategoriaff5 }} - </span>
+              <span class="puntos">{{ ultimos_participantes.puntajeff5 }} puntos</span>
+            </div>
+            
+            <div class="maria4-prez1">{{ ultimos_participantes.nombrefm1 }} {{ ultimos_participantes.apellidofm1 }}</div>
+            <div class="cat-l4-container1">
+              <span>{{ ultimos_participantes.subcategoriafm1 }}- </span>
+              <span class="puntos">{{ ultimos_participantes.puntajefm1 }} puntos</span>
+            </div>
+            <div class="maria4-prez2">{{ ultimos_participantes.nombrefm2 }} {{ ultimos_participantes.apellidofm2 }}</div>
+            <div class="cat-l4-container2">
+              <span>{{ ultimos_participantes.subcategoriafm2 }}- </span>
+              <span class="puntos">{{ ultimos_participantes.puntajefm2 }} puntos</span>
+            </div>
+            <div class="maria4-prez3">{{ ultimos_participantes.nombrefm3 }} {{ ultimos_participantes.apellidofm3 }}</div>
+            <div class="cat-l4-container3">
+              <span>{{ ultimos_participantes.subcategoriafm3 }}- </span>
+              <span class="puntos">{{ ultimos_participantes.puntajefm3 }} puntos</span>
+            </div>
+            <div class="maria4-prez4">{{ ultimos_participantes.nombrefm4 }} {{ ultimos_participantes.apellidofm4 }}</div>
+            <div class="cat-l4-container4">
+              <span>{{ ultimos_participantes.subcategoriafm4 }}- </span>
+              <span class="puntos">{{ ultimos_participantes.puntajefm4 }} puntos</span>
+            </div>
+            <div class="maria4-prez5">{{ ultimos_participantes.nombrefm5 }} {{ ultimos_participantes.apellidofm5 }}</div>
+            <div class="cat-l4-container5">
+              <span>{{ ultimos_participantes.subcategoriafm5 }}- </span>
+              <span class="puntos">{{ ultimos_participantes.puntajefm5 }} puntos</span>
+            </div>
+            
+
+      <div class="bsquetbol">Básquetbol</div>
+      <div class="femenino">Femenino</div>
+      <div class="bsquetbol1">Básquetbol</div>
+      <div class="masculino">Masculino</div>
+      <div class="ftbol">Fútbol</div>
+      <div class="masculino1">Masculino</div>
+      <div class="ftbol1">Fútbol</div>
+      <div class="femenino1">Femenino</div>
+      <div class="semana-1-container">
+        <p class="semana-1-mes-1">
+          <span class="semana">Semana </span>
+          <span class="span">1 </span>
+          <span class="mes">- Mes </span>
+          <span class="span">1</span>
+        </p>
+        <p class="semana-1-mes-1">
+          <span class="mes">inicia:</span>
+          <span class="span"> {{ evento.fecha_inicio }}  </span>
+          <span class="semana">- Finaliza: </span>
+          <span class="span">{{ evento.fecha_fin }} </span>
+        </p>
+        <script>
+          // Función para recargar la página cada minuto
+          function refreshPage() {
+              location.reload();
+          }
+  
+          // Llamar a la función refreshPage cada minuto (60000 milisegundos)
+          setInterval(refreshPage, 60000);
+      </script>
+        {% endblock %}
+        
+      </div>
+    </div>
+  </body>
+</html>
+
