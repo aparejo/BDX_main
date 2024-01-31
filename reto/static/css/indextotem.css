@@ -281,13 +281,13 @@
 .maria4-prez2 {
   position: absolute;
   top: 880px;
-  left: 141px;
+  left: 50%;
   font-weight: 900;
 }
 .cat-l4-container2 {
   position: absolute;
   top: 916px;
-  left: 141px;
+  left: 50%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -297,13 +297,13 @@
 .maria4-prez3 {
   position: absolute;
   top: 950px;
-  left: 141px;
+  left: 50%;
   font-weight: 900;
 }
 .cat-l4-container3 {
   position: absolute;
   top: 986px;
-  left: 141px;
+  left: 50%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -313,13 +313,13 @@
 .maria4-prez4 {
   position: absolute;
   top: 1025px;
-  left: 141px;
+  left: 50%;
   font-weight: 900;
 }
 .cat-l4-container4 {
   position: absolute;
   top: 1061px;
-  left: 141px;
+  left: 50%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -329,13 +329,13 @@
 .maria4-prez5 {
   position: absolute;
   top: 1100px;
-  left: 141px;
+  left: 50%;
   font-weight: 900;
 }
 .cat-l4-container5 {
   position: absolute;
   top: 1136px;
-  left: 141px;
+  left: 50%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
