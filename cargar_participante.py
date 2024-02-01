@@ -21,7 +21,10 @@ def cargar_participantes():
             cedula = fila[4]
             fecha = datetime.strptime(fila[5], '%Y-%m-%d')
             tieneci = bool(fila[6])
-            
+
+            # Verificar si el participante ya está registrado
+            if Participante.objects.filter(cedula=cedula).exists():
+                continue  # Pasar al siguiente participante
 
             participante = Participante(
                 nombre=nombre,
@@ -31,7 +34,6 @@ def cargar_participantes():
                 cedula=cedula,
                 fecha=fecha,
                 tieneci=tieneci,
-                
             )
             participante.save()
 

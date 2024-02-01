@@ -105,13 +105,13 @@
 .maria2-prez1 {
   position: absolute;
   top: 313px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l2-container1 {
   position: absolute;
   top: 346px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -121,13 +121,13 @@
 .maria2-prez2 {
   position: absolute;
   top: 383px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l2-container2 {
   position: absolute;
   top: 416px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -137,13 +137,13 @@
 .maria2-prez3 {
   position: absolute;
   top: 453px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l2-container3 {
   position: absolute;
   top: 486px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -153,13 +153,13 @@
 .maria2-prez4 {
   position: absolute;
   top: 523px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l2-container4 {
   position: absolute;
   top: 556px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -169,13 +169,13 @@
 .maria2-prez5 {
   position: absolute;
   top: 603px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l2-container5 {
   position: absolute;
   top: 636px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -265,13 +265,13 @@
 .maria4-prez1 {
   position: absolute;
   top: 800px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l4-container1 {
   position: absolute;
   top: 840px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -281,13 +281,13 @@
 .maria4-prez2 {
   position: absolute;
   top: 880px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l4-container2 {
   position: absolute;
   top: 916px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -297,13 +297,13 @@
 .maria4-prez3 {
   position: absolute;
   top: 950px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l4-container3 {
   position: absolute;
   top: 986px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -313,13 +313,13 @@
 .maria4-prez4 {
   position: absolute;
   top: 1025px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l4-container4 {
   position: absolute;
   top: 1061px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -329,13 +329,13 @@
 .maria4-prez5 {
   position: absolute;
   top: 1100px;
-  left: 50%;
+  left: 57%;
   font-weight: 900;
 }
 .cat-l4-container5 {
   position: absolute;
   top: 1136px;
-  left: 50%;
+  left: 57%;
   font-size: var(--font-size-base);
   display: inline-block;
   width: 265px;
@@ -363,7 +363,7 @@
 }
 .bsquetbol1 {
   top: 665.89px;
-  left: 45%;
+  left: 48%;
   font-size: var(--font-size-29xl);
 }
 .bsquetbol1,
@@ -376,7 +376,7 @@
 }
 .masculino {
   top: 645.19px;
-  left: 46%;
+  left: 50%;
   font-size: var(--font-size-35xl);
   color: var(--color-dimgray);
   display: inline-block;
@@ -385,12 +385,12 @@
 }
 .ftbol {
   top: 1160px;
-  left: 45%;
+  left: 48%;
   font-size: var(--font-size-29xl);
 }
 .masculino1 {
   top: 1140px;
-  left: 46%;
+  left: 50%;
   font-size: var(--font-size-35xl);
   font-weight: 900;
   color: var(--color-dimgray);
